@@ -1,69 +1,67 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Hero } from "@/components/Hero";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      <Hero />
+      <section className="max-w-7xl mx-auto w-full px-gutter-mobile md:px-gutter-desktop py-pad-2xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-pad-base">
+          <Link
+            href="/recognize"
+            className="group rounded-[28px] bg-[#1e3a8a] text-white p-pad-xl min-h-72 flex flex-col justify-between overflow-hidden"
+          >
+            <div className="space-y-pad-sm">
+              <span className="font-label-mono text-[16px] uppercase tracking-widest text-white/70">
+                01 · 인식
+              </span>
+              <h2 className="font-headline-lg text-[36px] leading-10">
+                손글씨 인식하기
+              </h2>
+              <p className="font-body-md text-[20px] leading-7 text-white/80">
+                숫자나 글자를 하나 쓰면 텍스트로 바꿉니다.
+              </p>
+            </div>
+            <p className="font-display-hero text-[56px] leading-none">7 → 7</p>
+          </Link>
+          <Link
+            href="/calculate"
+            className="group rounded-[28px] bg-[#f4c430] text-on-surface p-pad-xl min-h-72 flex flex-col justify-between overflow-hidden"
+          >
+            <div className="space-y-pad-sm">
+              <span className="font-label-mono text-[16px] uppercase tracking-widest text-on-surface/70">
+                02 · 계산
+              </span>
+              <h2 className="font-headline-lg text-[36px] leading-10">
+                손글씨로 계산하기
+              </h2>
+              <p className="font-body-md text-[20px] leading-7 text-on-surface/80">
+                수식을 쓰면 숫자와 연산자를 읽고 결과까지 보여줍니다.
+              </p>
+            </div>
+            <p className="font-display-hero text-[48px] leading-none">
+              2 + 2 = 4
+            </p>
+          </Link>
+        </div>
+      </section>
+      <section
+        id="about"
+        className="max-w-7xl mx-auto w-full px-gutter-mobile md:px-gutter-desktop pb-pad-2xl"
+      >
+        <div className="max-w-2xl space-y-pad-sm">
+          <span className="font-label-mono text-[16px] text-secondary uppercase tracking-widest">
+            프로젝트 소개
+          </span>
+          <h2 className="font-headline-lg text-[32px] leading-10 text-on-surface">
+            손글씨를 읽고, 수식이면 계산합니다.
+          </h2>
+          <p className="font-body-md text-[20px] leading-7 text-secondary">
+            인식은 글자를 텍스트로 바꾸는 기능이고, 계산은 그 위에 연산을 더하는
+            기능입니다. 먼저 하고 싶은 작업을 고르면 됩니다.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+    </>
   );
 }
